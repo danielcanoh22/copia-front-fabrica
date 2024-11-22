@@ -95,7 +95,9 @@ export default function Confirmation() {
       <h1 className="text-4xl font-bold" id="checkin-form-title">
         Formulario de Check-in
       </h1>
-      <p className="text-xl">Pasajero {currentPassenger}</p>
+      <p className="text-xl" id="checkin-form-passenger">
+        Pasajero {currentPassenger}
+      </p>
 
       <div className="flex gap-4 h-full mt-8">
         <Sidebar section={section} onSection={setSection} />
