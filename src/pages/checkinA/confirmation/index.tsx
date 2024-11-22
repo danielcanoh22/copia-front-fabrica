@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { FormData } from "@/types/checkinA/Form";
-import { TitlePrincipal } from "@/components/checkinA/Titles";
+// import { TitlePrincipal } from "@/components/checkinA/Titles";
 import { Sidebar } from "@/components/checkinA/Sidebar";
 import { PersonalDataForm } from "@/components/checkinA/CheckinForms/PersonalDataForm";
 import { EmergencyContactForm } from "@/components/checkinA/CheckinForms/EmergencyContactForm";
@@ -24,12 +24,12 @@ const formSchema = z.object({
   autoBaggageAddress: z.boolean(),
   health: z.string().min(1, "La información de salud es obligatoria"),
   travel: z.string().min(1, "La información de viaje es obligatoria"),
-  document: z.string().min(1, "El documento es obligatorio"),
+  document: z.string(),
   contactName: z.string().min(1, "El nombre del contacto es obligatorio"),
   contactPhone: z.string().min(1, "El teléfono del contacto es obligatorio"),
-  contactRelationship: z
-    .string()
-    .min(1, "La relación con el contacto es obligatoria"),
+  // contactRelationship: z
+  //   .string()
+  //   .min(1, "La relación con el contacto es obligatoria"),
   contactAddress: z.string().min(1, "La dirección de contacto es obligatoria"),
   autoContactAddress: z.boolean(),
 });
@@ -62,7 +62,7 @@ export default function Confirmation() {
       document: "",
       contactName: "",
       contactPhone: "",
-      contactRelationship: "",
+      // contactRelationship: "",
       contactAddress: "",
       autoContactAddress: false,
     },
@@ -91,7 +91,10 @@ export default function Confirmation() {
 
   return (
     <div className="flex flex-col h-screen p-4 max-w-5xl mx-auto">
-      <TitlePrincipal title="Confirma los datos para tu vuelo" />
+      {/* <TitlePrincipal title="Confirma los datos para tu vuelo" /> */}
+      <h1 className="text-4xl font-bold" id="checkin-form-title">
+        Formulario de Check-in
+      </h1>
       <p className="text-xl">Pasajero {currentPassenger}</p>
 
       <div className="flex gap-4 h-full mt-8">

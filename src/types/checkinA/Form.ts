@@ -11,7 +11,7 @@ export interface FormData {
   document: string;
   contactName: string;
   contactPhone: string;
-  contactRelationship: string;
+  // contactRelationship: string;
   contactAddress: string;
   autoContactAddress: boolean;
 }
@@ -26,7 +26,7 @@ export interface FormSchema {
   travel: z.ZodString;
   contactName: z.ZodString;
   contactPhone: z.ZodString;
-  contactRelationship: z.ZodString;
+  // contactRelationship: z.ZodString;
   contactAddress: z.ZodString;
   autoContactAddress: z.ZodBoolean;
 }

@@ -11,14 +11,14 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+// import {
+//   Select,
+//   SelectContent,
+//   SelectGroup,
+//   SelectItem,
+//   SelectTrigger,
+//   SelectValue,
+// } from "@/components/ui/select";
 import { UseFormReturn } from "react-hook-form";
 
 import { FormData } from "@/types/checkinA/Form";
@@ -44,15 +44,15 @@ export const EmergencyContactForm = ({
     if (checked && firstPassengerData) {
       form.setValue("contactName", firstPassengerData.contactName);
       form.setValue("contactPhone", firstPassengerData.contactPhone);
-      form.setValue(
-        "contactRelationship",
-        firstPassengerData.contactRelationship
-      );
+      // form.setValue(
+      //   "contactRelationship",
+      //   firstPassengerData.contactRelationship
+      // );
       form.setValue("contactAddress", firstPassengerData.contactAddress);
     } else {
       form.setValue("contactName", "");
       form.setValue("contactPhone", "");
-      form.setValue("contactRelationship", "");
+      // form.setValue("contactRelationship", "");
       form.setValue("contactAddress", "");
     }
   };
@@ -60,7 +60,11 @@ export const EmergencyContactForm = ({
   return (
     <div className="flex flex-col gap-4 w-full p-4 border-2 border-dashed border-green-700 rounded-lg">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <form
+          id="form-contact"
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="space-y-4"
+        >
           <FormField
             control={form.control}
             name="contactName"
@@ -71,6 +75,7 @@ export const EmergencyContactForm = ({
                 </FormLabel>
                 <FormControl>
                   <Input
+                    id="form-contact-name"
                     type="text"
                     placeholder="Ej: Juan Pérez López"
                     {...field}
@@ -90,6 +95,7 @@ export const EmergencyContactForm = ({
                 </FormLabel>
                 <FormControl>
                   <Input
+                    id="form-contact-phone"
                     type="text"
                     placeholder="Ej: +57 1234567890"
                     {...field}
@@ -99,7 +105,7 @@ export const EmergencyContactForm = ({
               </FormItem>
             )}
           />
-          <FormField
+          {/* <FormField
             control={form.control}
             name="contactRelationship"
             render={({ field }) => (
@@ -122,7 +128,7 @@ export const EmergencyContactForm = ({
                 <FormMessage />
               </FormItem>
             )}
-          />
+          /> */}
           <FormField
             control={form.control}
             name="contactAddress"
@@ -131,6 +137,7 @@ export const EmergencyContactForm = ({
                 <FormLabel>Dirección del contacto de emergencia</FormLabel>
                 <FormControl>
                   <Input
+                    id="form-contact-address"
                     type="text"
                     placeholder="Ej: Calle 1 #2-3"
                     {...field}
@@ -149,11 +156,12 @@ export const EmergencyContactForm = ({
                 <FormItem className="flex items-center gap-2 space-y-0">
                   <FormControl>
                     <Switch
+                      id="form-contact-autocomplete"
                       checked={field.value}
                       onCheckedChange={handleAutocomplete}
                     />
                   </FormControl>
-                  <FormLabel className="font-normal">
+                  <FormLabel className="font-normal" id="autocomplete-contact">
                     Autocompletar información
                   </FormLabel>
                 </FormItem>
@@ -166,7 +174,11 @@ export const EmergencyContactForm = ({
         <Button className="max-w-min" onClick={onPreviousSection}>
           Atrás
         </Button>
-        <Button className="max-w-min" onClick={onNextSection}>
+        <Button
+          className="max-w-min"
+          onClick={onNextSection}
+          id="form-contact-next"
+        >
           Siguiente
         </Button>
       </div>

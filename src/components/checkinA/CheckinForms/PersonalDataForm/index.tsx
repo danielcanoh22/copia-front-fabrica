@@ -39,7 +39,11 @@ export const PersonalDataForm = ({
   return (
     <div className="flex flex-col gap-4 w-full p-4 border-2 border-dashed border-green-700 rounded-lg">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(() => {})} className="space-y-4">
+        <form
+          id="form-personal"
+          onSubmit={form.handleSubmit(() => {})}
+          className="space-y-4"
+        >
           <FormField
             control={form.control}
             name="fullName"
@@ -48,6 +52,7 @@ export const PersonalDataForm = ({
                 <FormLabel>Nombre completo</FormLabel>
                 <FormControl>
                   <Input
+                    id="form-personal-name"
                     type="text"
                     placeholder="Ej: Juan Pérez López"
                     {...field}
@@ -64,7 +69,7 @@ export const PersonalDataForm = ({
               <FormItem>
                 <FormLabel>Fecha de nacimiento</FormLabel>
                 <FormControl>
-                  <Input type="date" {...field} />
+                  <Input id="form-personal-date" type="date" {...field} />
                 </FormControl>
 
                 <FormMessage />
@@ -78,7 +83,12 @@ export const PersonalDataForm = ({
               <FormItem>
                 <FormLabel>Nacionalidad</FormLabel>
                 <FormControl>
-                  <Input type="text" placeholder="Ej: Colombiana" {...field} />
+                  <Input
+                    id="form-personal-nationality"
+                    type="text"
+                    placeholder="Ej: Colombiana"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -92,6 +102,7 @@ export const PersonalDataForm = ({
                 <FormLabel>Dirección destino del equipaje</FormLabel>
                 <FormControl>
                   <Input
+                    id="form-personal-address"
                     type="text"
                     placeholder="Ej: Calle 1 #2-3"
                     {...field}
@@ -111,11 +122,12 @@ export const PersonalDataForm = ({
                 <FormItem className="flex items-center gap-2 space-y-0">
                   <FormControl>
                     <Switch
+                      id="form-personal-autocomplete"
                       checked={field.value}
                       onCheckedChange={handleAutocomplete}
                     />
                   </FormControl>
-                  <FormLabel className="font-normal">
+                  <FormLabel className="font-normal" id="autocomplete-address">
                     Autocompletar dirección
                   </FormLabel>
                 </FormItem>
@@ -130,6 +142,7 @@ export const PersonalDataForm = ({
                 <FormLabel>Información médica</FormLabel>
                 <FormControl>
                   <Textarea
+                    id="form-personal-health"
                     className="resize-none"
                     placeholder="Detalles de tu condición de salud"
                     {...field}
@@ -147,6 +160,7 @@ export const PersonalDataForm = ({
                 <FormLabel>Motivo del viaje</FormLabel>
                 <FormControl>
                   <Textarea
+                    id="form-personal-reason"
                     className="resize-none"
                     placeholder="Ingresa el motivo de tu viaje"
                     {...field}
@@ -159,7 +173,11 @@ export const PersonalDataForm = ({
           {/* <Button type="submit">Submit</Button> */}
         </form>
       </Form>
-      <Button className="max-w-min" onClick={onNextSection}>
+      <Button
+        className="max-w-min"
+        onClick={onNextSection}
+        id="form-personal-next"
+      >
         Siguiente
       </Button>
     </div>

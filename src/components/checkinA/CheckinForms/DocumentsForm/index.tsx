@@ -32,7 +32,11 @@ export const DocumentsForm = ({
   return (
     <div className="flex flex-col gap-4 w-full p-4 border-2 border-dashed border-green-700 rounded-lg">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <form
+          id="form-document"
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="space-y-4"
+        >
           <FormField
             control={form.control}
             name="document"
@@ -45,6 +49,7 @@ export const DocumentsForm = ({
                 </p>
                 <FormControl>
                   <Input
+                    id="form-document-passport"
                     className="pl-0 py-0 file:bg-primary file:text-white file:h-full file:cursor-pointer"
                     type="file"
                     {...field}
@@ -62,7 +67,7 @@ export const DocumentsForm = ({
           <Button className="mr-4" type="button" onClick={onPreviousSection}>
             Atrás
           </Button>
-          <Button type="submit">
+          <Button type="submit" id="form-document-submit">
             {nextPassenger
               ? "Continua con el siguiente pasajero"
               : "Generar tiquetes de abordaje"}
