@@ -8,7 +8,6 @@ const CheckinA = () => {
         id="checkin-confirmation-btn"
         href="/checkinA/validation"
         className="bg-primary text-white p-2 rounded-md"
-        target="_blank"
       >
         Ir a la ventana de confirmación
       </Link>
@@ -16,7 +15,6 @@ const CheckinA = () => {
         id="checkin-form-btn"
         href="/checkinA/confirmation"
         className="bg-primary text-white p-2 rounded-md"
-        target="_blank"
       >
         Ir al formulario de Checkin
       </Link>
